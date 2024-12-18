@@ -5,7 +5,6 @@ import axios from "axios";
 const TownFormHandler = ({ setError, setSuccess }) => {
   const [formData, setFormData] = useState({
     townName: "",
-    plotCount: "",
     totalPlots: "",
   });
 
@@ -46,7 +45,6 @@ const TownFormHandler = ({ setError, setSuccess }) => {
         setSuccess(true);
         setFormData({
           townName: "",
-          plotCount: "",
           totalPlots: "",
         });
       }
@@ -65,10 +63,12 @@ const TownFormHandler = ({ setError, setSuccess }) => {
         <ul className="space-y-2 mt-4">
           {towns.length > 0 ? (
             towns.map((town) => (
-              <li key={town.id} className="bg-gray-100 p-4 rounded-md shadow-md">
+              <li
+                key={town.id}
+                className="bg-gray-100 p-4 rounded-md shadow-md"
+              >
                 <p className="font-semibold">{town.name}</p>
                 <p>Total Plots: {town.totalPlots}</p>
-                <p>Plot Count: {town.plotCount}</p>
               </li>
             ))
           ) : (
@@ -93,20 +93,9 @@ const TownFormHandler = ({ setError, setSuccess }) => {
         </div>
 
         <div>
-          <label className="block text-gray-700 font-semibold">Plot Count</label>
-          <input
-            type="number"
-            name="plotCount"
-            value={formData.plotCount}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter number of plots"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 font-semibold">Total Plots</label>
+          <label className="block text-gray-700 font-semibold">
+            Total Plots
+          </label>
           <input
             type="number"
             name="totalPlots"

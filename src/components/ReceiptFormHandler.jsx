@@ -55,14 +55,14 @@ const ReceiptFormHandler = ({ setError, setSuccess }) => {
       {/* Form Fields */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {[
-          "name",
-          "fatherName",
-          "cnic",
-          "address",
-          "phone",
-          "plotNo",
-          "townName",
-          "amount",
+          "Name",
+          "FatherName",
+          "CNIC",
+          "Address",
+          "Phone",
+          "PlotNo",
+          "TownName",
+          "Amount",
         ].map((field, index) => (
           <div key={index}>
             <label className="block text-gray-700 font-semibold">{field}</label>
