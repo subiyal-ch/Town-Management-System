@@ -10,39 +10,31 @@ receipts.init(
       type: DataTypes.STRING(80),
       primaryKey: true,
     },
-    name: {
-      type: DataTypes.STRING(34),
+    buyerName: {
+      type: DataTypes.STRING(64),
       allowNull: false,
     },
     fatherName: {
-      type: DataTypes.STRING(34),
+      type: DataTypes.STRING(64),
       allowNull: false,
       unique: true,
     },
-    cnic: {
-      type: DataTypes.STRING(),
+    cnicNumber: {
+      type: DataTypes.STRING(15),
       allowNull: false,
       unique: true,
     },
-    address: {
-      type: DataTypes.STRING(1000),
-      allowNull: false,
-    },
-    phoneNo: {
-      type: DataTypes.STRING(24),
+    shopHouseNumber: {
+      type: DataTypes.STRING(20),
       allowNull: false,
       unique: true,
     },
-    plotNo: {
-      type: DataTypes.STRING(24),
-      allowNull: false,
-    },
-    townName: {
-      type: DataTypes.STRING(34),
+    areaMeasurement: {
+      type: DataTypes.STRING(64),
       allowNull: false,
     },
     amount: {
-      type: DataTypes.STRING(),
+      type: DataTypes.STRING(24),
       allowNull: false,
     },
   },
@@ -58,5 +50,4 @@ receipts.init(
 receipts.beforeCreate(async (receipt) => {
   receipt.receiptId = uuid();
 });
-
 module.exports = receipts;

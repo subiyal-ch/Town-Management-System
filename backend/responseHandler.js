@@ -1,18 +1,15 @@
 module.exports = (res, result) => {
-  try {
-    if (result.error) {
-      throw result.error;
-    }
-    return res.send({
-      status: 200,
-      data: result.data,
-      error: {},
-    });
-  } catch (error) {
-    return res.send({
+  if (result.error) {
+    return res.status(400).json({
       status: 400,
-      data: result.data,
-      error: {},
+      data: null,
+      error: result.error,
     });
   }
+
+  return res.status(200).json({
+    status: 200,
+    data: result.data,
+    error: null,
+  });
 };

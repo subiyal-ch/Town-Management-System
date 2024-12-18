@@ -5,18 +5,15 @@ class towns extends Model {}
 
 towns.init(
   {
-    townId: {
-      type: DataTypes.STRING(80),
+    TownId: {
+      type: DataTypes.STRING(32),
+      unique: true,
       primaryKey: true,
     },
     townName: {
-      type: DataTypes.STRING(34),
+      type: DataTypes.STRING(100),
+      unique: true,
       allowNull: false,
-    },
-    totalPlots: {
-      type: DataTypes.STRING(34),
-      allowNull: false,
-      unique: false,
     },
   },
   {

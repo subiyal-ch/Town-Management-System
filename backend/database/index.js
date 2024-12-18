@@ -1,10 +1,10 @@
 const sequelize = require("./dbConnections");
 
-const users = require("./tables/users");
-const plots = require("./tables/plots");
+const towns = require("./tables/towns");
 const receipts = require("./tables/receipts");
+const plots = require("./tables/plots");
 
-const models = { users, plots, receipts };
+const models = { towns, receipts, plots };
 
 sequelize.models = models;
 module.exports = { sequelize, models };

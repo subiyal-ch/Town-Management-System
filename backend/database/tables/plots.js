@@ -6,60 +6,65 @@ class plots extends Model {}
 
 plots.init(
   {
-    plotId: {
+    PlotId: {
       type: DataTypes.STRING(80),
       primaryKey: true,
     },
-    customerName: {
-      type: DataTypes.STRING(64),
+    CustomerName: {
+      type: DataTypes.STRING(82),
       allowNull: false,
     },
-    fatherName: {
-      type: DataTypes.STRING(34),
-      allowNull: false,
-    },
-    address: {
+    FatherName: {
       type: DataTypes.STRING(80),
       allowNull: false,
     },
-    phoneNo: {
+    Address: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    PhoneNo: {
       type: DataTypes.STRING(32),
       allowNull: false,
     },
-    cnic: {
-      type: DataTypes.STRING(),
+    CNIC: {
+      type: DataTypes.STRING(15),
       allowNull: false,
       unique: true,
     },
-    plotNumber: {
+    PlotNumber: {
       type: DataTypes.STRING(1000),
       allowNull: false,
     },
-    area: {
-      type: DataTypes.STRING(100),
+    TotalArea: {
+      type: DataTypes.STRING(80),
       allowNull: false,
     },
-    pricePerMarla: {
-      type: DataTypes.STRING(100),
+    PricePerMarla: {
+      type: DataTypes.STRING(32),
       allowNull: false,
     },
-    totalAmount: {
-      type: DataTypes.STRING(100),
+    TotalPrice: {
+      type: DataTypes.STRING(32),
       allowNull: false,
     },
-    fixedInstallment: {
-      type: DataTypes.STRING(100),
+    MonthlyInstallment: {
+      type: DataTypes.STRING(32),
       allowNull: false,
     },
-    totalInstallments: {
+    PaidAmount: {
+      type: DataTypes.STRING(32),
+      allowNull: false,
+    },
+    ToBePaid: {
+      type: DataTypes.STRING(32),
+      allowNull: false,
+    },
+    TotalInstallments: {
       type: DataTypes.STRING(24),
       allowNull: false,
     },
-    monthlyInstallment: {
-      type: DataTypes.STRING(64),
-      allowNull: false,
-    },
-    status: {
+
+    PropertyType: {
       type: DataTypes.STRING(64),
       allowNull: false,
     },
@@ -72,9 +77,7 @@ plots.init(
     sequelize,
   }
 );
-
-receipts.beforeCreate(async (receipt) => {
-  receipt.receiptId = uuid();
+plots.beforeCreate(async (plot) => {
+  plot.PlotId = uuid();
 });
-
-module.exports = receipts;
+module.exports = plots;
